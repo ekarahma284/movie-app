@@ -15,7 +15,7 @@ const App = () => {
     const response = await fetch(`${API_URL}&s=${query}`);
     const data = await response.json();
     if (data.Search) {
-      setMovies(data.Search.slice(0, 10)); // Batasi hanya 10 film (5 kolom x 2 baris)
+      setMovies(data.Search.slice(0, 10));
     }
   };
 
@@ -29,7 +29,6 @@ const App = () => {
 
   return (
     <div>
-      {/* Header dan Search */}
       <Container fluid className="bg-danger text-white py-3">
         <Row className="align-items-center">
           <Col xs={1} md={8}>
@@ -41,12 +40,10 @@ const App = () => {
         </Row>
       </Container>
 
-      {/* Judul */}
       <Container className="mt-3">
         <h3 className="text-primary">Show Your Favorite Movies</h3>
       </Container>
 
-      {/* Grid Movies */}
       <Container
         className="mt-4"
         style={{
@@ -61,7 +58,7 @@ const App = () => {
           <div
             key={movie.imdbID}
             style={{
-              flex: "0 1 calc(20% - 10px)", // 20% untuk 5 kolom dengan jarak antar elemen
+              flex: "0 1 calc(20% - 10px)",
               maxWidth: "calc(20% - 10px)",
               display: "flex",
               justifyContent: "center",
